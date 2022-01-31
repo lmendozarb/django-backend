@@ -17,6 +17,9 @@ _Estas instrucciones te permitirán obtener una copia del esqueleto en funcionam
     ```
 
 2. Crear copia de variables de entorno
+     ```
+    cp -r .envs-example .envs/
+    ```
 
 3. Contruir el contenedor
     ```
