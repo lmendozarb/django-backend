@@ -21,7 +21,7 @@ _Estas instrucciones te permitirán obtener una copia del esqueleto en funcionam
     cp -r .envs-example .envs/
     ```
 
-3. Contruir el contenedor
+3. Construir el contenedor
     ```
     make build
     ```
