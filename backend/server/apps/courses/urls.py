@@ -1,5 +1,9 @@
 from rest_framework.routers import SimpleRouter
-from courses.views import CourseByCategory, SingleCourseViewSet
+
+from courses.views import (
+    CourseByCategory,
+    SingleCourseViewSet,
+)
 
 app_name = 'courses'
 router = SimpleRouter()

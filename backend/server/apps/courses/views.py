@@ -1,11 +1,19 @@
-from rest_framework import mixins, permissions, viewsets
-from rest_framework.response import Response
 from drf_spectacular.utils import (
     extend_schema,
     extend_schema_view,
 )
-from courses.serializers import ClassroomSerializer, SingleCourseSerializer
+from rest_framework import (
+    mixins,
+    viewsets,
+)
+from rest_framework.response import Response
+
 from courses.models import Classroom
+from courses.serializers import (
+    ClassroomSerializer,
+    SingleCourseSerializer,
+)
+
 
 # Create your views here.
 @extend_schema_view(

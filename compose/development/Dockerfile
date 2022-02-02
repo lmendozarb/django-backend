@@ -9,7 +9,7 @@ ARG BUILD_ENVIRONMENT=development
 # Install apt packages
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
-  build-essential 
+  build-essential
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./backend/requirements .

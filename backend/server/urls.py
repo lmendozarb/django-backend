@@ -28,6 +28,7 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
+
 admin.site.site_header = 'Project Admin'
 
 urlpatterns = [

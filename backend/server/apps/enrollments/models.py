@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from students.models import Student
-from courses.models import Classroom
 
-# Create your models here.
+from courses.models import Classroom
+from students.models import Student
+
 
 class Enrollment(models.Model):
     """
@@ -15,8 +15,10 @@ class Enrollment(models.Model):
         ENROLLMENT = 'enrollment', 'Matriculado'
         CANCELATED = 'cancelated', 'Cancelado'
 
-    external_reference = models.CharField(_('Código Externo'), max_length=120, unique=True)
-    internal_reference = models.CharField(_('Código Interno'), max_length=120, unique=True)
+    external_reference = models.CharField(
+        _('Código Externo'), max_length=120, unique=True)
+    internal_reference = models.CharField(
+        _('Código Interno'), max_length=120, unique=True)
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE,
         related_name='enrollment', related_query_name='enrollment')
@@ -36,4 +38,3 @@ class Enrollment(models.Model):
 
     def __str__(self) -> str:
         return f'{self.external_reference}- {self.classroom} - {self.student.name}'
-    

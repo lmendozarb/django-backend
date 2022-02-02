@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from core.models import TimestampMixin
+
 
 # Create your models here.
 class Student(TimestampMixin):
@@ -33,7 +35,7 @@ class ParentStudent(TimestampMixin):
         RUC = 'RUC', 'RUC'
         DNI = 'DNI', 'DNI'
         PPT = 'PPT', 'PPT'
-    
+
     name = models.CharField(_('Nombres'), max_length=255)
     lastname = models.CharField(_('Apellidos'), max_length=255)
     birth_date = models.DateTimeField(_('Fecha de Nacimiento'))
@@ -52,7 +54,8 @@ class ParentStudent(TimestampMixin):
         related_name='parent_student', related_query_name='parent_student')
 
     def __str__(self) -> str:
-        return f'{self.name} {self.lastname} -> {self.student.name} {self.student.internal_reference}'
+        return f'{self.name} {self.lastname} \\-> {self.student.name} \
+            {self.student.internal_reference}'
 
     class Meta:
         verbose_name = _('Apoderado')

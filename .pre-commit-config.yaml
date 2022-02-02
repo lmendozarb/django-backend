@@ -45,15 +45,6 @@ repos:
           '--ignore-init-module-imports'
           ]
 
-  - repo: https://github.com/odwyersoftware/brunette
-    rev: 0.2.2
-    hooks:
-      - id: brunette
-        args:
-        - --config=backend/setup.cfg
-        - --single-quotes
-        language_version: python3
-
   - repo: https://github.com/timothycrosley/isort
     rev: 5.10.1
     hooks:
@@ -78,11 +69,6 @@ repos:
         - --errors-only
         - --disable=no-name-in-module,import-error
         - --ignore=migrations
-
-  -   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-      rev: v1.2.2
-      hooks:
-        - id: python-safety-dependencies-check
 
   -   repo: https://github.com/PyCQA/bandit
       rev: 1.7.1
