@@ -63,31 +63,26 @@ DJANGO_APPS = [
 ]
 
 THIRD_APPS = [
-    'anymail',
-    'celery',
-    'ckeditor',
-    'ckeditor_uploader',
     'corsheaders',
     'drf_spectacular',
     'rest_framework',
     'django_filters',
     'admin_auto_filters',
+    'django_elasticsearch_dsl',
+    'mptt',
 ]
 
 LOCAL_APPS = [
     'core',
+    'enrollments',
+    'courses',
+    'students',
     'users',
-    'api',
-    'transportation',
-    'crew',
-    'locations',
-    'middleware'
-]
+    ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
-    'middleware.kubernetes_health_checks.KubernetesHealthChecks',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -176,6 +171,12 @@ STATIC_ROOT = BASE_DIR / 'public'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+ELASTICSEARCH_DSL = {
+    'default':{
+        'hosts': 'localhost:9200'
+    }
+}
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
