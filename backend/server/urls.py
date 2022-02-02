@@ -28,13 +28,11 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-
 admin.site.site_header = 'Project Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^admin/jsi18n/', JavaScriptCatalog.as_view()),
-    re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path(
         'api/schema/swagger-ui/',
@@ -46,6 +44,8 @@ urlpatterns = [
         SpectacularRedocView.as_view(url_name='schema'),
         name='redoc',
     ),
+    path('api/v1/courses/', include('courses.urls')),
+    path('api/v1/users/', include('users.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
